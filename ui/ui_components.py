@@ -32,31 +32,19 @@ def show_prediction_result(prediction):
 
     # Metrics
     col1, col2 = st.columns(2)
-
     with col1:
-        st.metric(
-            "Premium Category",
-            category
-        )
-
+        st.metric("Premium Category",category)
     with col2:
-        st.metric(
-            "Model Confidence",
-            f"{confidence:.2%}"
-        )
+        st.metric("Model Confidence",f"{confidence:.2%}")
 
     st.divider()
 
     st.subheader("Class Probabilities")
 
     for class_name, probability in probabilities.items():
-
         col1, col2 = st.columns([1, 3])
-
         with col1:
             st.write(f"**{class_name}**")
-
         with col2:
             st.progress(float(probability))
-
         st.caption(f"{probability:.2%}")

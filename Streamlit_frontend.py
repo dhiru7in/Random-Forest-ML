@@ -3,7 +3,7 @@ import os
 import requests
 from ui.ui_components import show_prediction_result
 
-API_URL = os.environ.get("API_URL", "http://127.0.0.1:8000/predict")
+API_URL = st.secrets.get("API_URL", os.environ.get("API_URL", "http://127.0.0.1:8000/predict"))
 
 st.title("Insurance Premium Predictor")
 st.markdown("Enter your details below:")
